@@ -1,12 +1,14 @@
 {
   "name": "lt-codes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Lithuanian codes. Personal & company code validator and generator",
-  "main": "index.js",
-  "typings": "index.d.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc --build tsconfig.json",
+    "prepare": "tsc --build tsconfig.json",
     "lint": "eslint --ext .js,.ts .",
     "lint:sarif": "set SARIF_ESLINT_EMBED=true && npm run lint -- --format @microsoft/eslint-formatter-sarif --output-file eslint-results.sarif"
   },
@@ -16,7 +18,6 @@
   },
   "author": "Pranciškus Ambrazas",
   "license": "MIT",
-  "types": "./index.d.ts",
   "bugs": {
     "url": "https://github.com/AplinkosMinisterija/lt-codes/issues"
   },

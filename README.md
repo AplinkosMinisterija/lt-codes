@@ -76,12 +76,23 @@ const result: ValidationResult = personalCode.validate(code);
 | `companyCode.validate(code: string)` | Validates company code |
 | `companyCode.generate()`             | Generates company code |
 
+`validate` accepts either:
+
+- a regular 9-digit Lithuanian company code, or
+- the convention `FA_<11-digit personal code>` used at Aplinkos ministerija when a
+  natural person acts in place of a company. In that case the suffix is validated as a
+  personal code, and the result is returned with `isException: true`.
+
 #### Example
 
 ```js
 const code = '123456789'; // example
 const generatedCode = companyCode.generate();
 const { isValid, isException, error } = companyCode.validate(code);
+
+// Natural person acting as a company
+const { isValid: isValidFA, isException: isFA } = companyCode.validate('FA_39001010000');
+// isValidFA === true, isFA === true
 ```
 
 #### Response (example)

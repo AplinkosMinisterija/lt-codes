@@ -4,10 +4,28 @@ import {
   resultHandler,
   randomNumberToString,
 } from './common';
+import { validate as validatePersonalCode } from './person';
+
+// Aplinkos ministerijos sutarta konvencija: kai įmonės vietoje veikia fizinis asmuo,
+// įmonės kodo lauke įrašomas "FA_<asmens kodas>".
+const NATURAL_PERSON_PREFIX = 'FA_';
+const NATURAL_PERSON_REGEX = /^FA_(\d{11})$/;
 
 export function validate(code: string) {
   if (!code) {
     return resultHandler(VALIDATION_ERRORS.EMPTY);
+  }
+
+  if (code.startsWith(NATURAL_PERSON_PREFIX)) {
+    const match = NATURAL_PERSON_REGEX.exec(code);
+    if (!match) {
+      return resultHandler(VALIDATION_ERRORS.INVALID);
+    }
+    const personResult = validatePersonalCode(match[1]);
+    if (!personResult.isValid) {
+      return personResult;
+    }
+    return resultHandler('', true);
   }
 
   if (!/^[0-9]{9}$/.test(code)) {

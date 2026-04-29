@@ -66,8 +66,8 @@ typings/
 
 eslint-results.sarif
 
-# Don't track transpiled files
-dist/
+# Source maps regenerate on build
+dist/**/*.map
 
 # Remove generated files
 generated-sources

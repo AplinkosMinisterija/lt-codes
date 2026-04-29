@@ -1,6 +1,6 @@
 {
   "name": "lt-codes",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Lithuanian codes. Personal & company code validator and generator",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ambrazasp/lt-codes.git"
+    "url": "git+https://github.com/AplinkosMinisterija/lt-codes.git"
   },
   "author": "Pranciškus Ambrazas",
   "license": "MIT",
   "types": "./index.d.ts",
   "bugs": {
-    "url": "https://github.com/ambrazasp/lt-codes/issues"
+    "url": "https://github.com/AplinkosMinisterija/lt-codes/issues"
   },
-  "homepage": "https://github.com/ambrazasp/lt-codes#readme",
+  "homepage": "https://github.com/AplinkosMinisterija/lt-codes#readme",
   "dependencies": {
     "moment": "^2.29.4"
   },

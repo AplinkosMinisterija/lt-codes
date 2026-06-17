@@ -8,7 +8,7 @@ on:
 jobs:
   generate-library:
     name: Generate client library
-    runs-on: ubuntu-latest
+    runs-on: am-github-runner
     permissions: read-all
     steps:
       - name: Checkout code
@@ -42,7 +42,7 @@ jobs:
 
   publish-library:
     name: Publish client library
-    runs-on: ubuntu-latest
+    runs-on: am-github-runner
     needs: [generate-library]
     permissions:
       packages: write
